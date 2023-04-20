@@ -47,9 +47,9 @@ public class TestingClass {
         
 		switch(choice) {
 		case 1 : 
-			ArrayList<String> ingreidents = ham.getIngredients();
+			ArrayList<String> ingredients = ham.getIngredients();
 			System.out.println(ham.description());
-			System.out.println("Ingredeints : " + ingreidents);
+			System.out.println("Ingredeints : " + ingredients);
 			System.out.println( ham.cost()); 
 			System.out.println( "Prep time is : " + ham.prepTime() + "Minutes");
 			break;

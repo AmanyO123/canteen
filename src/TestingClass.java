@@ -8,9 +8,10 @@ public class TestingClass {
 	//	ArrayList<DishBase,Dish> allDishes = new ArrayList<DishBase,Dish>();
 		// my plan is to make an array list that holds all the orders with drinks and such
 		
+		
 		 Order order1 = new Order(0);
-			DrinkCola drink = new DrinkCola(new DishBase());
-			DishHamburger ham = new DishHamburger(new DishBase());
+			DrinkCola drink = new DrinkCola(new DishBase("Sugar"));
+			DishHamburger ham = new DishHamburger(new DishBase("Meat"));
 			
 		
 		Scanner scanner = new Scanner(System.in);

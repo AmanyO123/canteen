@@ -2,6 +2,7 @@ import java.util.ArrayList;
 //import java.util.Timer;
 
 public class DishHamburger extends DishDecorator {
+	
 
 	ArrayList<String> ingredients = new ArrayList<String>();
 	//Timer timer = new Timer();
@@ -29,6 +30,8 @@ public class DishHamburger extends DishDecorator {
 		return ingredients;
 		
 	}
+ 
+ 
  
  public double prepTime () {
 	 

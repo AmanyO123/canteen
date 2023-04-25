@@ -1,8 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DishBase implements Dish{
+public class DishBase extends IngredientsCompareAllergy implements Dish{
 	
+	public DishBase(String ingreident) {
+		super(ingreident);
+		
+	}
+
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<String> ingredients = new ArrayList<String>();
 
@@ -20,12 +25,7 @@ public class DishBase implements Dish{
 	}
 	
 	
-	// public ArrayList<String> getIngredients(){
-	//	 System.out.println("The ingrediants in this dish are : ");
-			
-	//		return ingredients;
-			
-	//	}
+	
 	
 	
 

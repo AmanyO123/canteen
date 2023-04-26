@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.*;  
 
 // wanted to have a comparison of ingredients and allergies using the comparable interface.
-public abstract class IngredientsCompareAllergy { //implements Comparable<Ingredient>{
+public abstract class IngredientsCompareAllergy implements Comparable<Ingredient>{
 	
 	public String allergy;
 	//public static ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();

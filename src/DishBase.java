@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class DishBase extends IngredientsCompareAllergy implements Dish{
 	
+	protected IngredientsCompareAllergy inal;
+	
 	public DishBase(String ingreident) {
 		super(ingreident);
 		
@@ -26,7 +28,7 @@ public class DishBase extends IngredientsCompareAllergy implements Dish{
 	
 	
 	
+	}
 	
 	
 
-}

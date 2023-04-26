@@ -3,9 +3,11 @@ import java.util.ArrayList;
 
 public class DishHamburger extends DishDecorator {
 	
+	IngredientsCompareAllergy allerIng;
+	
 
 	ArrayList<String> ingredients = new ArrayList<String>();
-	//Timer timer = new Timer();
+	
 
 	public DishHamburger(Dish newDish) {
 		super(newDish);
@@ -24,14 +26,28 @@ public class DishHamburger extends DishDecorator {
 		
 	}
 	
+	
  public ArrayList<String> getIngredients(){
 		ingredients.add("Beef patty, Lettuce, Tomato, Pickles, Bun");
-		
 		return ingredients;
+		
 		
 	}
  
- 
+	public void checking() {
+	allerIng.checkingAlandIn();
+	}
+	
+	public void checkingforAlandIn() {
+		// wanna use the linkedlist from the other class for this one 
+		// allerIng.ingredients.add("Beef patty, Lettuce, Tomato, Pickles, Bun"); -- not comptaible because of String 
+		ingredients.add("Beef patty, Lettuce, Tomato, Pickles, Bun");
+		allerIng.checkingAlandIn();
+		
+
+		}
+		
+	
  
  public double prepTime () {
 	 

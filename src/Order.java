@@ -51,26 +51,7 @@ public class Order {
 
     }
  
- public void checkAllergies() {
-	 
  
- 
- for (int i = 1; i < orderSize + 1; i++) {
 
-     System.out.println(i + ": first name?");
-     String first = scanner.next();
 
-     System.out.println(i + ": last name?");
-     String last = scanner.next();
-
-     System.out.println(i + ": allergies?");
-     String allergy = scanner.next();
-
-     System.out.println();
-
-     Customer customer = new Customer(first, last, allergy);
-     order[i - 1] = customer;
- }
-
-}
 }

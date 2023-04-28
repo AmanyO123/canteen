@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
+import foodanddrinks.*;
 
 public class TestingClass {
 
@@ -9,9 +10,12 @@ public class TestingClass {
 		// my plan is to make an array list that holds all the orders with drinks and such
 		
 		
-		 Order order1 = new Order(0);
-			DrinkCola drink = new DrinkCola(new DishBase("Sugar"));
-			DishHamburger ham = new DishHamburger(new DishBase("Meat"));
+		Order order1 = new Order(0);
+		
+		Drink cola = new Drink("Cola", 1.50);
+		Food ham = new Food("Hamburger", 7.50, 25);
+		ham.addIngredient(new Ingredient("meat"));
+		ham.addIngredient(new Ingredient("bread"));
 			
 		
 		Scanner scanner = new Scanner(System.in);
@@ -41,14 +45,14 @@ public class TestingClass {
         
         System.out.println("Menu");
         System.out.println("1. " + ham.description());
-        System.out.println("2. " + drink.description());
+        System.out.println("2. " + cola.description());
         System.out.println("Enter your choice :");
         
        choice=scanner.nextInt();
         
 		switch(choice) {
 		case 1 : 
-			ArrayList<String> ingredients = ham.getIngredients();
+			LinkedList<Ingredient> ingredients = ham.getIngredients();
 			System.out.println(ham.description());
 			System.out.println("Ingredeints : " + ingredients);
 			System.out.println( ham.cost()); 
@@ -56,8 +60,8 @@ public class TestingClass {
 			break;
 			
 		case 2 : 
-			drink.description();
-			System.out.println( drink.cost());
+			cola.description();
+			System.out.println(cola.cost());
 			break;
 		default : 
 			 System.out.println("Item not listed");

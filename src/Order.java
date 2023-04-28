@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import foodanddrinks.Dish;
+
 public class Order {
 	public Dish[] dish;
     public Customer[] order;

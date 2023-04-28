@@ -1,9 +1,10 @@
+package foodanddrinks;
 
 public class Ingredient {
-	public String ingreident;
+	public String ingredient;
 	
 	public Ingredient(String name) {
-		this.ingreident = name;
+		this.ingredient = name;
 	}
 	
 
@@ -12,10 +13,15 @@ public class Ingredient {
 	//}
 	
 	public void setIngredient(String name) {
-		this.ingreident = name;
+		this.ingredient = name;
 	}
 	
 	public String getIngredient () {
-		return ingreident;
+		return ingredient;
+	}
+	
+	@Override
+	public String toString() {
+		return ingredient;
 	}
 }

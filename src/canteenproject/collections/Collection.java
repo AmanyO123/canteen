@@ -1,6 +1,6 @@
 package canteenproject.collections;
 
-import java.util.function.Function;
+//import java.util.function.Function;
 
 public interface Collection<A> {
 	public void add(A element);
@@ -9,6 +9,7 @@ public interface Collection<A> {
 	public boolean isEmpty();
 	public int size();
 	
-	public <R> Collection<R> map(Function<A, R> function);
+
+//	public <R> Collection<R> map(Function<A, R> function);
 //	public Collection<A> filter(Function<A, Boolean> function);
 }

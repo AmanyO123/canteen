@@ -1,7 +1,5 @@
 package canteenproject.collections;
 
-import java.util.function.Function;
-
 public class Set<A> implements Collection<A>, Iterator<A> {
 
 	@Override
@@ -44,13 +42,6 @@ public class Set<A> implements Collection<A>, Iterator<A> {
 	public int size() {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	@Override
-	public <R> Collection<R> map(Function<A, R> function) {
-		return null;
-		// TODO Auto-generated method stub
-		
 	}
 
 }

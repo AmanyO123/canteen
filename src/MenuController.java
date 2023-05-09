@@ -5,16 +5,24 @@ import foodanddrinks.Drink;
 
 public class MenuController {
 	
-	  private Menu model;
+	  	private Menu model;
 	    private MenuView view;
 	    Order order; 
 	    
-	    
+	    public MenuController() {
+	    	model = new Menu();
+	    	view = new MenuView();
+	    }
 	    
 	    public MenuController(Menu model, MenuView view)
 	    {
 	        this.model = model;
 	        this.view = view;
+	    }
+	    
+	    public void addFood(Food food) {
+	    	model.addFood(food);
+	    	
 	    }
 	    
 	    public void setFoods(LinkedList<Food> Foodmenu){
@@ -23,6 +31,10 @@ public class MenuController {
 
 	     public LinkedList<Food> getFoods(){
 	        return model.getFoodList();		
+	     }
+	     
+	     public void addDrink(Drink drink) {
+	    	 model.addDrink(drink);
 	     }
 
 	     public void setDrinks(LinkedList<Drink> Drinkmenu){
@@ -34,16 +46,11 @@ public class MenuController {
 	     }
 
 	     public void updateView(){				
-	        view.printMenu(model.getFoodList(), model.getDrinkList());
+	       
+	       view.printMenu(getFoods(), getDrinks());
+	       
 	     }	
 	     
-	     public void displayFoodlist() {
-	         view.displayFood(model.getFoodList());
-	     }
-	     
-	     public void displayDrinklist() {
-	         view.displayDrink(model.getDrinkList());
-	     }
 	  }
 
 

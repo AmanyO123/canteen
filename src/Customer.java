@@ -11,7 +11,7 @@ public class Customer {
     
     //ArrayList<Dish> allergies = new ArrayList<Dish>();
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Allergy> allergies = new ArrayList<Allergy>();
+    
     
     public Customer (String firstName, String lastName, int ID) {
         this.firstName = firstName;
@@ -39,13 +39,6 @@ public String toString() {
     return this.firstName + " " + this.lastName + " "  + this.ID;
 }
 
-public ArrayList<Allergy> getAllergies() {
-    return allergies;
-}
-
-public void setAllergies(ArrayList<Allergy> allergies) {
-    this.allergies = allergies;
-}
 
 
 public String toString1() {

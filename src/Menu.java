@@ -13,7 +13,7 @@ public class Menu { // model
 	
 	
 	private LinkedList<Food> Foodmenu = new LinkedList<Food>(); 
-	private  LinkedList<Drink> Drinkmenu = new LinkedList<Drink>();
+	private LinkedList<Drink> Drinkmenu = new LinkedList<Drink>();
 	
 	public Menu(LinkedList<Food> Foodmenu , LinkedList<Drink> Drinkmenu ) {
 		this.Drinkmenu=Drinkmenu;

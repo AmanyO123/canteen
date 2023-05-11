@@ -1,15 +1,9 @@
 import java.util.LinkedList;
 
-public class CustomerController {
+public class CustomerQueueController {
 	private LinkedList<Customer> customerQueue = new LinkedList<Customer>();
-	private Customer model; 
 	
-	public CustomerController() {
-		
-	}
-	
-	public void setfirstName(String first, String last) {
-		model.setName(first,last);
+	public CustomerQueueController() {
 		
 	}
 

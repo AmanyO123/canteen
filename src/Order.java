@@ -1,59 +1,33 @@
-import java.util.Scanner;
-
+import java.util.LinkedList;
 import foodanddrinks.Dish;
 
 public class Order {
-	public Dish[] dish;
-    public Customer[] order;
-    public Customer[] customer;
-
-    public Boolean eatIn = true;
-    private int orderSize;
-    Scanner scanner = new Scanner(System.in);
-    public String allergy;
+	int customerId;
+	LinkedList<Dish> dishes = new LinkedList<Dish>();
+    boolean eatIn = true;
     
-    public Order (int orderSize) {
-    	order = new Customer[orderSize];
-        this.orderSize = orderSize;
+    public Order(int customerId, boolean eatIn) {
+    	this.customerId = customerId;
+    	this.eatIn = eatIn;
+    }
+    
+    public void addDish(Dish dish) {
+    	dishes.add(dish);
+    }
+    
+    public int getTotalWaitTime() {
+    	int totalWaitTime = 0;
+    	for(int i = 0; i < dishes.size(); i++) {
+    		 totalWaitTime+=dishes.get(i).prepTime();
+    	}
     	
-    }
-    
-    public Order (String allergy) {
-    	order = new Customer[orderSize];
-        this.allergy = allergy;
+    	return totalWaitTime;
     	
-    }
-   
-    
-    public void fillOrder() {
-
-        for (int i = 1; i < orderSize + 1; i++) {
-
-            System.out.println(i + ": first name?");
-            String first = scanner.next();
-
-            System.out.println(i + ": last name?");
-            String last = scanner.next();
-
-            System.out.println(i + ": ID?");
-            int ID = scanner.nextInt();
-
-            System.out.println();
-
-            Customer customer = new Customer(first, last, ID);
-            order[i - 1] = customer;
-        }
+//    	for (Dish dish : dishes) {
+//    		totalWaitTime += dish.prepTime();
+//    	}
     }
     
- public void showOrder() {
-        
-        for (int i = 1; i < orderSize + 1; i++) {
-            System.out.println(order[i - 1]);
-        }
-
-    }
- 
- 
-
+    
 
 }

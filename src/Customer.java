@@ -1,49 +1,48 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-public class Customer {
+import java.util.LinkedList;
+import foodanddrinks.*;
 
-	
-    public String firstName;
-    public String lastName;
-    public int ID;
-    public String allergy;
+public class Customer {
+    int ID;
+    String firstName;
+    String lastName;
     Order order;
-    
-    //ArrayList<Dish> allergies = new ArrayList<Dish>();
-    Scanner scanner = new Scanner(System.in);
+    LinkedList<Ingredient> allergies = new LinkedList<Ingredient>();
     
     
     public Customer (String firstName, String lastName, int ID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ID = ID;
+        this.order = new Order(ID, true);
     }
     
-    public Customer (String firstName, String lastName, String allergy) {
+    public Customer (String firstName, String lastName, int ID, boolean eatIn) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.allergy = allergy;
+        this.ID = ID;
+        this.order = new Order(ID, eatIn);
     }
     
+    public int getId() {
+    	return ID;
+    }
 
-
-public void setName(String new_firstName, String new_lastName) {
-
-    this.firstName = new_firstName;
-    this.lastName = new_lastName;
-
-}
-
-@Override
-public String toString() {
-    return this.firstName + " " + this.lastName + " "  + this.ID;
-}
-
-
-
-public String toString1() {
-    return this.firstName + " " + this.lastName + " "  + this.allergy;
-}
+    public void addAllergy(Ingredient allergy) {
+    	allergies.add(allergy);
+    }
+	
+    public void addAllergy(LinkedList<Ingredient> allergies) {
+    	this.allergies.addAll(allergies);
+    }
+    
+    public void addDishToOrder(Dish dish) {
+    	order.addDish(dish);
+    }
+    
+	@Override
+	public String toString() {
+	    return this.firstName + " " + this.lastName + " "  + this.ID;
+	}
 
 
 }

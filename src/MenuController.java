@@ -7,7 +7,6 @@ public class MenuController {
 	
 	  	private Menu model;
 	    private MenuView view;
-	    Order order; 
 	    
 	    public MenuController() {
 	    	model = new Menu();
@@ -45,8 +44,7 @@ public class MenuController {
 	        return model.getDrinkList();		
 	     }
 
-	     public void updateView(){				
-	       
+	     public void display(){				
 	       view.printMenu(getFoods(), getDrinks());
 	       
 	     }	

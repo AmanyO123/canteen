@@ -1,9 +1,6 @@
-import foodanddrinks.Drink;
-import foodanddrinks.Food;
+import foodanddrinks.*;
 
-//import foodanddrinks.Food;
-
-public class MVC {
+public class Main {
 
 	public static void main(String[] args) {
 		
@@ -16,7 +13,11 @@ public class MVC {
 	      MenuController mc = new MenuController(model, view);
 
 	      // prepare/load menu model data
-	      mc.addFood(new Food("hamburger", 7.50, 15)); // adding to lists food 
+	      Food hamburger = new Food("hamburger", 7.50, 15);
+	      hamburger.addIngredient(new Ingredient("meat"));
+	      hamburger.addIngredient(new Ingredient("bread"));
+	      hamburger.addIngredient(new Ingredient("tomato"));
+	      mc.addFood(hamburger); // adding to lists food 
 	      mc.addFood(new Food("pizza", 8.90, 25));
 	      mc.addFood(new Food("fries", 3.50, 10));
 	      mc.addFood(new Food("pasta", 10.50, 20));

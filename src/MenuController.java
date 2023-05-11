@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 
 import foodanddrinks.Food;
+import foodanddrinks.Dish;
 import foodanddrinks.Drink;
 
 public class MenuController {
@@ -47,7 +48,31 @@ public class MenuController {
 	     public void display(){				
 	       view.printMenu(getFoods(), getDrinks());
 	       
-	     }	
+	     }
+
+		public boolean exists(String possibleDish) {
+			for(Food food : model.getFoodList()) {
+				if(food.description().equals(possibleDish))
+					return true;
+			}
+			for(Drink drink : model.getDrinkList()) {
+				if(drink.description().equals(possibleDish))
+					return true;
+			}
+			return false;
+		}
+
+		public Dish getDishByName(String possibleDish) {
+			for(Food food : model.getFoodList()) {
+				if(food.description().equals(possibleDish))
+					return food;
+			}
+			for(Drink drink : model.getDrinkList()) {
+				if(drink.description().equals(possibleDish))
+					return drink;
+			}
+			return null;
+		}	
 	     
 	  }
 

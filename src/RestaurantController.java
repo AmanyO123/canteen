@@ -6,14 +6,14 @@ import foodanddrinks.*;
 public class RestaurantController {
 
 	private MenuController menuController;
-	private CustomerQueueController customerController;
+	private CustomerQueueController customerQueueController;
 	
 	// In future could have also:
 	// KitchenController(kitchen, kitchenView)
 	
 	public RestaurantController(MenuController menuController, CustomerQueueController customerController) {
 		this.menuController = menuController;
-		this.customerController = customerController;
+		this.customerQueueController = customerController;
 	}
 	
 	public void addFood(Food food) {
@@ -25,31 +25,70 @@ public class RestaurantController {
 	}
 	
 	public void addCustomer(Customer customer) {
-		customerController.addToQueue(customer);
+		customerQueueController.addToQueue(customer);
 	}
 	
 	public void exitCustomer(Customer customer) {
 	}
 	
 	public void go() {
-		go(customerController.nextCustomer());
+		go(customerQueueController.nextCustomer());
 	}
 	
 	public void go(Customer customer) {
-		System.out.println(customer.firstName);
+		customerQueueController.welcomeView(customer);
+		customerQueueController.requestAllergies(customer);
+		customerQueueController.repeatAllergies(customer);
+		
 		// print menu view 
 		menuController.display();
-		// ask for order (view menu view)
-//		order.fillOrder(); // this is null 
-		// check for allergies (may skip)
+		getCustomerOrder(customer);
+		
 		// repeat order with cash total and wait time total
+			// TODO
 		// go to next customer
-		if(customerController.isNextCustomer()) {
+		if(customerQueueController.isNextCustomer()) {
 			// do it again
-			go(customerController.nextCustomer());
+			go(customerQueueController.nextCustomer());
 		} else {
 			// stop
 		}
+	}
+
+	private void getCustomerOrder(Customer customer) {
+		customerQueueController.showOrderSoFar(customer);
+		String possibleDish = customerQueueController.requestCustomerSingleDish(customer);
+		if(possibleDish.equals("nothing")) {
+			// stop
+		} else {
+			// Check does possibleDish exist?
+			if(menuController.exists(possibleDish)) {
+				Dish dish = menuController.getDishByName(possibleDish);
+				if(dish instanceof Food) {
+					// Check for allergies
+					boolean isCustomerAllergic = ((Food) dish).checkForAllergies(customer.getAllergies());
+					if(isCustomerAllergic) {
+						customerQueueController.allergicToDish(customer, (Food) dish);
+					} else {
+						customer.addDishToOrder(dish);
+					}
+					getCustomerOrder(customer);
+				} else if(dish instanceof Drink) {
+					customer.addDishToOrder(dish);
+					getCustomerOrder(customer);
+				} else {
+					customerQueueController.orderError(possibleDish);
+				}
+			} else {
+				customerQueueController.dishDoesNotExist(possibleDish);
+				getCustomerOrder(customer);
+			}
+		}
+		
+		
+		
+		
+		
 	}
 
 }

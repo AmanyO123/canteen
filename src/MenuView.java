@@ -21,6 +21,8 @@ public class MenuView {
 	            System.out.println(drinklist);
 	        }
 		 
+		 System.out.println("Nothing else");
+
 	        
 	 }
 }

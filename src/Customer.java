@@ -2,11 +2,11 @@ import java.util.LinkedList;
 import foodanddrinks.*;
 
 public class Customer {
-    int ID;
-    String firstName;
-    String lastName;
-    Order order;
-    LinkedList<Ingredient> allergies = new LinkedList<Ingredient>();
+	private int ID;
+    private String firstName;
+    private String lastName;
+    private Order order;
+    private LinkedList<Ingredient> allergies = new LinkedList<Ingredient>();
     
     
     public Customer (String firstName, String lastName, int ID) {
@@ -26,6 +26,14 @@ public class Customer {
     public int getId() {
     	return ID;
     }
+    
+    public String getFirstName() {
+    	return firstName;
+    }
+    
+    public String getLastName() {
+    	return lastName;
+    }
 
     public void addAllergy(Ingredient allergy) {
     	allergies.add(allergy);
@@ -42,6 +50,14 @@ public class Customer {
 	@Override
 	public String toString() {
 	    return this.firstName + " " + this.lastName + " "  + this.ID;
+	}
+
+	public LinkedList<Ingredient> getAllergies() {
+		return allergies;
+	}
+
+	public Order getOrder() {
+		return order;
 	}
 
 

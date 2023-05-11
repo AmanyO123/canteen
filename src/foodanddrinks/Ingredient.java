@@ -7,17 +7,21 @@ public class Ingredient {
 		this.ingredient = name;
 	}
 	
-
-	//public Ingredient getIngredient() { // returns the object of ingredient 
-	//	return this;
-	//}
-	
 	public void setIngredient(String name) {
 		this.ingredient = name;
 	}
 	
 	public String getIngredient () {
 		return ingredient;
+	}
+	
+	@Override
+	public boolean equals(Object another) {
+		if(another instanceof Ingredient) {
+			if(((Ingredient) another).ingredient.equals(this.ingredient))
+				return true;
+		}
+		return false;
 	}
 	
 	@Override

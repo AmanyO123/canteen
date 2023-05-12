@@ -6,14 +6,12 @@ import foodanddrinks.Ingredient;
 public class CustomerQueueController {
 	private LinkedList<Customer> customerQueue = new LinkedList<Customer>();
 	private CustomerAndOrderView customerAndOrderView = new CustomerAndOrderView();
-	
+
 	public CustomerQueueController() {
-		
 	}
 
 	public void addToQueue(Customer customer) {
 		customerQueue.add(customer);
-		
 	}
 
 	public boolean isNextCustomer() {
@@ -21,21 +19,15 @@ public class CustomerQueueController {
 	}
 
 	public Customer nextCustomer() {
-	
 		return customerQueue.pop();
 	}
 
-	public String requestCustomerSingleDish(Customer customer) {
-		return customerAndOrderView.requestSingleDish();	
-	}
-
-	public void welcomeView(Customer customer) {
-		customerAndOrderView.welcomeView(customer);
-	}
-
+	/*
+	 * View control logic methods.
+	 */
 	public void requestAllergies(Customer customer) {
 		String allergyInput = customerAndOrderView.requestSingleAllergy();
-		if(allergyInput.equals("nothing")) {
+		if (allergyInput.equals("nothing")) {
 			// done
 		} else {
 			customer.addAllergy(new Ingredient(allergyInput));
@@ -43,26 +35,36 @@ public class CustomerQueueController {
 		}
 	}
 
-	public void repeatAllergies(Customer customer) {
-		customerAndOrderView.repeatAllergies(customer);
+	/*
+	 * View wrapping methods.
+	 */
+	public String requestSingleDish(Customer customer) {
+		return customerAndOrderView.requestSingleDish();
 	}
 
-	public void dishDoesNotExist(String possibleDish) {
-		customerAndOrderView.dishDoesNotExist(possibleDish);
+	public void displayWelcome(Customer customer) {
+		customerAndOrderView.displayWelcome(customer);
 	}
 
-	public void allergicToDish(Customer customer, Food dish) {
-		customerAndOrderView.allergicToDish(customer, dish);
+	public void displayConfirmAllergies(Customer customer) {
+		customerAndOrderView.displayConfirmAllergies(customer);
 	}
 
-	public void orderError(String possibleDish) {
-		customerAndOrderView.orderError(possibleDish);
+	public void displayDishDoesNotExist(String possibleDish) {
+		customerAndOrderView.displayDishDoesNotExist(possibleDish);
 	}
 
-	public void showOrderSoFar(Customer customer) {
-		customerAndOrderView.showOrder(customer.getOrder());
-		
+	public void displayAllergicToDish(Customer customer, Food dish) {
+		customerAndOrderView.displayAllergicToDish(customer, dish);
 	}
-	
-	
+
+	public void displayOrderError(String possibleDish) {
+		customerAndOrderView.displayOrderError(possibleDish);
+	}
+
+	public void displayOrder(Customer customer) {
+		customerAndOrderView.displayOrder(customer.getOrder());
+
+	}
+
 }

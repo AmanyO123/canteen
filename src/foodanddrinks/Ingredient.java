@@ -1,7 +1,7 @@
 package foodanddrinks;
 
 public class Ingredient {
-	public String ingredient;
+	private String ingredient;
 	
 	public Ingredient(String name) {
 		this.ingredient = name;

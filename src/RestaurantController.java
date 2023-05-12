@@ -66,7 +66,7 @@ public class RestaurantController {
 				Dish dish = menuController.getDishByName(possibleDish);
 				if(dish instanceof Food) {
 					// Check for allergies
-					boolean isCustomerAllergic = ((Food) dish).checkForAllergies(customer.getAllergies());
+					boolean isCustomerAllergic = ((Food) dish).containsAllergies(customer.getAllergies());
 					if(isCustomerAllergic) {
 						customerQueueController.allergicToDish(customer, (Food) dish);
 					} else {

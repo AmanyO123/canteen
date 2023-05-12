@@ -18,13 +18,13 @@ public abstract class WithIngredients {
 		return ingredients;
 	}
 	
-	public boolean checkForAllergies(LinkedList<Ingredient> allergies) {
+	public boolean containsAllergies(LinkedList<Ingredient> allergies) {
 		for(Ingredient a : allergies) {
 			for(Ingredient i : ingredients) {
-				if(a == i) return false;
+				if(a.equals(i)) return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 }

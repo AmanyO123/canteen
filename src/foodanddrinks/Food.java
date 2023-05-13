@@ -3,7 +3,6 @@ package foodanddrinks;
 import java.util.LinkedList;
 
 public class Food extends WithIngredients implements Dish {
-
 	private String description;
 	private double cost;
 	private int prepTime;
@@ -35,7 +34,7 @@ public class Food extends WithIngredients implements Dish {
 	public int prepTime() {
 		return prepTime;
 	}
-	
+
 	@Override
 	public String toString() {
 		return description;

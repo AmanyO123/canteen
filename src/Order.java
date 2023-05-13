@@ -2,13 +2,25 @@ import java.util.LinkedList;
 import foodanddrinks.Dish;
 
 public class Order {
-	int customerId;
-	LinkedList<Dish> dishes = new LinkedList<Dish>();
-    boolean eatIn = true;
+	private int customerId;
+	private LinkedList<Dish> dishes = new LinkedList<Dish>();
+    private boolean eatIn = true;
     
     public Order(int customerId, boolean eatIn) {
     	this.customerId = customerId;
     	this.eatIn = eatIn;
+    }
+    
+    public int getCustomerId() {
+    	return customerId;
+    }
+    
+    public LinkedList<Dish> getDishes() {
+    	return dishes;
+    }
+    
+    public boolean isEatingIn() {
+    	return eatIn;
     }
     
     public void addDish(Dish dish) {
@@ -27,6 +39,4 @@ public class Order {
 //    		totalWaitTime += dish.prepTime();
 //    	}
     }
-    
-
 }
